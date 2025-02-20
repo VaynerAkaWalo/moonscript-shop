@@ -19,12 +19,12 @@ class extends lapis.Application
         json: category
 
       PUT: json_params =>
-        category = Categories\find @params
+        category = Categories\find @params.id
         category\update @params
         json: category
 
       DELETE: json_params =>
-        category = Categories\find @params
+        category = Categories\find @params.id
         category\delete!
         json: { deleted: @params.id }
   }
@@ -37,22 +37,22 @@ class extends lapis.Application
       POST: json_params =>
         product = Products\create @params
         json: product
-    }
+  }
 
-    [product: "/products/:id"]: respond_to {
+  [product: "/products/:id"]: respond_to {
         GET: =>
           product = Products\find @params.id
           json: product
 
         PUT: json_params =>
-          product = Products\find @params
+          product = Products\find @params.id
           product\update @params
           json: product
 
         DELETE: json_params =>
-          product = Products\find @params
+          product = Products\find @params.id
           product\delete!
           json: { deleted: @params.id }
-    }
+  }
 
 
