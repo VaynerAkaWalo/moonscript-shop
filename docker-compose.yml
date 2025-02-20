@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: moon-shop-db
+    environment:
+      POSTGRES_USER: moon-shop
+      POSTGRES_PASSWORD: changeit
+      POSTGRES_DB: moon-shop
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    container_name: moon-shop
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      LAPIS_ENVIRONMENT: development
