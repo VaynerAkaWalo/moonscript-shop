@@ -5,4 +5,4 @@ compile:
 	moonc *.moon
 
 clean:
-	rm *.lua
+	rm -f *.lua && rm -f *.compiled

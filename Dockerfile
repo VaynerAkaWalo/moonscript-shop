@@ -14,4 +14,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD lapis server
+CMD lapis migrate && lapis server
